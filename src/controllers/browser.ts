@@ -299,10 +299,11 @@ export async function initBrowser(
       return await puppeteer.connect({ browserWSEndpoint: options.browserWS });
     } else {
       console.log('aqui');
-      const browser = await puppeteer.launch({
-        executablePath,
-        headless: 'new'
-      });
+      // const browser = await puppeteer.launch({
+      //   executablePath,
+      //   headless: 'new',
+      //   args: puppeteerConfig.chromiumArgs
+      // });
       return await puppeteer.launch({
         headless: 'new',
         devtools: false,
