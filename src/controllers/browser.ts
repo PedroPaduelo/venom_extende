@@ -257,7 +257,8 @@ export async function initBrowser(
       console.log('1aqui');
       const browser = await puppeteer.launch({
         executablePath,
-        headless: 'new'
+        headless: 'new',
+        protocolTimeout: 0
       });
       chromeVersion = await browser.version();
       await browser.close();
@@ -290,6 +291,7 @@ export async function initBrowser(
     const launchOptions = {
       headless: options.headless,
       devtools: options.devtools,
+      protocolTimeout: 0,
       args: puppeteerConfig.chromiumArgs,
       ...options.puppeteerOptions,
       ...extras
