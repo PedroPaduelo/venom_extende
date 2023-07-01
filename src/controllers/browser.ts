@@ -298,17 +298,7 @@ export async function initBrowser(
     if (options.browserWS && options.browserWS !== '') {
       return await puppeteer.connect({ browserWSEndpoint: options.browserWS });
     } else {
-      console.log('aqui');
-      // const browser = await puppeteer.launch({
-      //   executablePath,
-      //   headless: 'new',
-      //   args: puppeteerConfig.chromiumArgs
-      // });
-      return await puppeteer.launch({
-        headless: 'new',
-        devtools: false,
-        args: puppeteerConfig.chromiumArgs
-      });
+      return await puppeteer.launch(launchOptions);
     }
   } catch (e) {
     console.error(e);
